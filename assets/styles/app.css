@@ -1,93 +1,179 @@
+*{
+    color: #FFF;
+}
+
 .navbar,
-		footer {
-			background-color: #000 !important;
-			height: 8vh;
-		}
+footer {
+    background-color: #000 !important;
+    height: 8vh;
+}
 
-		.navbar a {
-			color: #FFF;
-			font-family: Roboto;
-			font-size: 20px;
-			font-style: normal;
-			font-weight: 600;
-			line-height: normal;
-		}
+.navbar a {
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
 
-		.navbar a:hover {
-			color: #F00;
-		}
+.navbar a:hover {
+    color: #F00;
+}
 
-		.parent {
-			background-color: #1E1E1E;
-			height: 84vh;
-			display: grid;
-			grid-template-columns: 1fr 5fr 1fr;
-			grid-template-rows: 1fr 5fr;
-			grid-column-gap: 0;
-			grid-row-gap: 0;
-		}
 
-		.div1 {
-			grid-area: 1 / 2 / 2 / 3;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-		.main__h1 {
-			color: #FFF;
-			font-family: Montserrat;
-			/* font-size: 48px; */
-			font-size: 4vw;
-			font-style: normal;
-			font-weight: 600;
-			line-height: normal;
-			position: relative;
-			z-index: 1;
-		}
-		.back__h1 {
-			color: #FFF;
-			position: absolute;
-			z-index: 0;
-			/* top: 75px; */
-			top: 10vh;
-			/* left: 280px; */
-			left: 17vw;
-			opacity: 8%;
-		}
-		.div1 span {
-			color: #F00;
-		}
-		#h1__question {
-			/* font-size: 64px; */
-			font-size: 4vw;
-		}
+.carousel__btn--left, .carousel__btn--right{
+    height: 100% !important;
+    width: 100% !important;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+.bi-arrow-right, .bi-arrow-left{
+    color: #FFF;
+    font-size: 5vw;
+}
+.main__picture{
+    /* background-color: red; */
+    /* height: 85%; */
+    /* display: flex; */
+    /* align-items: center; */
+}
+.main__picture--film{
+    max-width: 90%;
+    /* max-height: 100%; */
+}
+.main__film{
+    /* background-color: blue; */
+    height: 100%;
+}
+.main__film--title{
+    display: flex;
+    align-items: center;
+    height: 20%;
+}
+.main__film--infos{
+    height: 20%;
+}
+.main__film--text{
+    height: 40%;
+}
+.main__film--btn{
+    height: 20%;
+}
 
-		.div2 {
-			grid-area: 2 / 1 / 3 / 2;
-			background-color: blue;
-		}
 
-		.div3 {
-			grid-area: 2 / 3 / 3 / 4;
-			background-color: yellow;
-		}
 
-		.div4 {
-			grid-area: 2 / 2 / 3 / 3;
-			background-color: green;
-		}
 
-		@media(max-width: 768px) {
-			;
-			/* h1 {
+
+.parent {
+    background-color: #1E1E1E;
+    height: 84vh;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 1fr 5fr;
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+}
+
+.div1 {
+    grid-area: 1 / 2 / 2 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main__h1 {
+    color: #FFF;
+    font-family: Montserrat;
+    /* font-size: 48px; */
+    font-size: 4vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    position: relative;
+    z-index: 1;
+}
+
+.back__h1 {
+    color: #FFF;
+    position: absolute;
+    z-index: 0;
+    /* top: 75px; */
+    top: 10vh;
+    /* left: 280px; */
+    left: 17vw;
+    opacity: 8%;
+}
+
+.div1 span {
+    color: #F00;
+}
+
+#h1__question {
+    /* font-size: 64px; */
+    font-size: 4vw;
+}
+
+.div2 {
+    grid-area: 2 / 1 / 3 / 2;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+}
+
+.div3 {
+    grid-area: 2 / 3 / 3 / 4;
+    /* background-color: yellow; */
+}
+
+.div4 {
+    grid-area: 2 / 2 / 3 / 3;
+    /* background-color: green; */
+    position: relative;
+
+}
+.div4[data-status="inactive"] {
+    transform: translateX(-200%);
+}
+.div4[data-status="active"] {
+    transform: translateX(0%);
+}
+
+@media(max-width: 768px) {
+    h1 {
         font-size: 16px;
         width: 90vw;
     }
-    #h1__question{
+
+    #h1__question {
         font-size: 20px;
     }
-    .back__h1{
+
+    .back__h1 {
         top: 11vh;
         left: 4vw;
-    } */
-		}
+    }
+
+    .parent {
+
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .div2 {
+        grid-area: 6 / 1 / 7 / 2;
+        background-color: blue;
+    }
+
+    .div3 {
+        grid-area: 6 / 2 / 7 / 3;
+        background-color: yellow;
+    }
+
+    .div4 {
+        grid-area: 2 / 1 / 6 / 3;
+        background-color: green;
+    }
+
+
+}

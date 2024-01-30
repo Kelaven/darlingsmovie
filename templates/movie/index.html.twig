@@ -5,41 +5,108 @@
 {% endblock %}
 
 {% block body %}
-	<style>
-		
-	</style>
+<style></style>
 
-	<main>
-		<div class="parent">
-			<div class="div1">
-				<div class="back__h1">
-					<h1>
-						<span>DARLING,</span>
-						WHAT ARE WE WATCHING TONIGHT
-						<span>?</span>
-					</h1>
-				</div>
-				<div class="main__h1">
-					<h1>
-						<span>CHÉRI(E),</span>
-						QU’EST QU’ON REGARDE CE SOIR
-						<span id="h1__question">?</span>
-					</h1>
-				</div>
+<main>
+	<div class="parent">
+		<div class="div1">
+			<div class="back__h1">
+				<h1>
+					<span>DARLING,</span>
+					WHAT ARE WE WATCHING TONIGHT
+					<span>?</span>
+				</h1>
 			</div>
-			<div class="div2">
-				div2
-			</div>
-			<div class="div3">
-				div3
-			</div>
-			<div class="div4">
-				div4
+			<div class="main__h1">
+				<h1>
+					<span>CHÉRI(E),</span>
+					QU’EST QU’ON REGARDE CE SOIR
+					<span id="h1__question">?</span>
+				</h1>
 			</div>
 		</div>
-	</main>
+		<div class="div2 d-flex justify-content-center align-items-center">
+			<button class="carousel__btn--left" aria-label="Bouton précédent">
+				<span class="visually-hidden">Bouton précédent</span>
+				<i class="bi bi-arrow-left"></i>
+			</button>
+		</div>
+		<div class="div3 d-flex justify-content-center align-items-center">
+			<button class="carousel__btn--right" aria-label="Bouton suivant">
+				<span class="visually-hidden">Bouton suivant</span>
+				<i class="bi bi-arrow-right"></i>
+			</button>
+		</div>
+		<div class="div4 d-flex" data-status="active">
+			<div class="main__picture w-25">
+				<img class="main__picture--film pt-5" src="{{ asset('img/unnamed.jpg') }}" alt="photo film">
+			</div>
+			<div class="main__film w-75 px-2">
+				<div class="main__film--title">
+					<h2>The Expendables</h2>
+				</div>
+				<div class="main__film--infos d-flex">
+					<div class="genre px-5">
+						<p>Film d'action</p>
+					</div>
+					<div class="duree px-5">
+						<p>2h32</p>
+					</div>
+					<div class="date px-5">
+						<p>02/2016</p>
+					</div>
+				</div>
+				<div class="main__film--text">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+						laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+						voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+						non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+						laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+						voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+						non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+				</div>
+				<div class="main__film--btn">
+					<button type="button" class="btn btn-light">En savoir +</button>
+				</div>
+			</div>
+		</div>
+
+
+		{# ! doublon en dur #}
+		<div class="div4 d-flex" data-status="inactive">
+			<div class="main__picture w-25">
+				<img class="main__picture--film pt-5" src="{{ asset('img/unnamed.jpg') }}" alt="photo film">
+			</div>
+			<div class="main__film w-75 px-2">
+				<div class="main__film--title">
+					<h2>Blablabla</h2>
+				</div>
+				<div class="main__film--infos d-flex">
+					<div class="genre px-5">
+						<p>Film comique</p>
+					</div>
+					<div class="duree px-5">
+						<p>1h20</p>
+					</div>
+					<div class="date px-5">
+						<p>02/2023</p>
+					</div>
+				</div>
+				<div class="main__film--text">
+					<p>
+						guerfguezrvgfuekzrgvuherzvghjzervgerzghbjerhzkbgkhzerbghkerbgkhbzerkhjbg
+					</p>
+				</div>
+				<div class="main__film--btn">
+					<button type="button" class="btn btn-light">En savoir +</button>
+				</div>
+			</div>
+		</div>
+		
+</main>
 {% endblock %}
-
-
-
-
