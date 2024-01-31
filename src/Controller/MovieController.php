@@ -11,11 +11,10 @@ class MovieController extends AbstractController
     #[Route('/movie', name: 'app_movie')]
     public function index(): Response
     {
-        // return $this->render('/../templates/base.html.twig');
+        $subtitle = 'Les supers films de La Manu';
         return $this->render('movie/index.html.twig', [
-            'controller_name' => 'Kévin',
+            'controller_name' => 'MovieController',
+            'subtitle' => $subtitle
         ]);
-        // return $this->render('/../templates/footer.html.twig');
-        // dd('coucou');
     }
 }
