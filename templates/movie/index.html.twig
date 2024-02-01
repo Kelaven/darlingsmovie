@@ -41,6 +41,9 @@
 		<div class="div4 d-flex" data-status="active">
 			<div class="main__picture w-25">
 				<img class="main__picture--film pt-5" src="{{ asset('img/unnamed.jpg') }}" alt="photo film">
+				<div class="main__review">
+					9
+				</div>
 			</div>
 			<div class="main__film w-75 px-2">
 				<div class="main__film--title">
@@ -72,7 +75,7 @@
 					</p>
 				</div>
 				<div class="main__film--btn">
-					<button type="button" class="btn btn-light">En savoir +</button>
+					<a class="btn btn-light" href="">En savoir +</a>
 				</div>
 			</div>
 		</div>
@@ -85,6 +88,9 @@
 		<div class="div4 d-flex" data-status="inactive">
 			<div class="main__picture w-25">
 				<img class="main__picture--film pt-5" src="{{ asset(movie.picture) }}" alt="photo film">
+				<div class="main__review">
+					{{ movie.review }}
+				</div>
 			</div>
 			<div class="main__film w-75 px-2">
 				<div class="main__film--title">
