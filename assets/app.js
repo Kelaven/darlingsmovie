@@ -33,7 +33,7 @@ clickLeftBtn();
 function clickRightBtn() {
     rightBtn.addEventListener('click', () => {
         activeIndex++;
-
+        console.log(activeIndex);
         if (activeIndex >= parents.length) {
             activeIndex = 0;
         }
