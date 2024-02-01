@@ -6,7 +6,7 @@ use App\Entity\Movie;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\DataFixtures\CategoryFixtures;
-use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface; // pour appeler la méthode implements DependentFixtureInterface
 
 class AppFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -31,16 +31,16 @@ class AppFixtures extends Fixture implements DependentFixtureInterface
             $movie->setSynopsis('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum, felis eget fermentum euismod, ligula justo fringilla purus, vel laoreet orci metus in risus. Ut in urna vel est dictum posuere a non ex. Sed eu odio ac orci cursus vehicula nec at libero. Integer quis arcu auctor, euismod libero ac, ultrices odio.');
             $movie->setTrailer('https://www.youtube.com/' . $count);
 
-
-// addReference, getReference
-
+            // $movie->setCategory($this->getReference('category')); // récupérer l'id category en insérant un objet issu de la classe Category
+            $category = $this->getReference('category_' . rand(0,5));
+            $movie->setCategory($category);
 
             $manager->persist($movie);
         }
         $manager->flush();
     }
 
-    public function getDependencies()
+    public function getDependencies() // dépend de CategoryFixtures car un film doit etre rattaché à une catégorie 
     {
         return [
             CategoryFixtures::class,
