@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Accueil | Darling's Movie
+{% endblock %}
+
+{% block body %}
+
+
+
+<section class="section__detail">
+    <div class="container">
+        <div class="row pt-5">
+            <div class="d-flex justify-content-center flex-wrap">
+                <h1 class="w-100 text-center"> {{ movie.name }} </h1>
+                <hr class="title__hr">
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col text-center">
+                <iframe width="560" height="315" src="{{ movie.trailer }}" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h2>Acteurs :</h2>
+            </div>
+        </div>
+        <div class="row pb-5">
+            <div class="col-2">
+                <div class="card">
+                    <img src="{{ asset('img/1379642-leonardo-dicaprio-sur-le-tapis-rouge-du-beverly-hilton-hotel-de-los-angeles.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Leonardo DiCaprio</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="card">
+                    <img src="{{ asset('img/1379642-leonardo-dicaprio-sur-le-tapis-rouge-du-beverly-hilton-hotel-de-los-angeles.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Leonardo DiCaprio</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</section>
+{% endblock %}

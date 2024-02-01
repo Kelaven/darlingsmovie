@@ -28,6 +28,16 @@ class MovieController extends AbstractController
         ]);
     }
 
-
+    #[Route('/movie/detailmovie.html.twig', name: 'detail_movie')]
+    public function detail(ManagerRegistry $mr): Response // ManagerRegistry $mr pour récupérer les données avec getRepository et findAll
+    {
+        $page = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
+        // dd($page);
+        $movie = $mr->getRepository(Movie::class)->find($page);
+        return $this->render('movie/detailmovie.html.twig', [
+            'controller_name' => 'MovieController',
+            'movie' => $movie
+        ]);
+    }
 
 }
