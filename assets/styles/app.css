@@ -188,3 +188,25 @@ footer {
 
 
 }
+
+
+
+
+/* *********************** PAGE DETAIL *********************** */
+.section__detail{
+    background-color: #1E1E1E;
+    min-height: 84vh;
+}
+.title__hr{
+    border: solid 4px #F00;
+    opacity: 1;
+    width: 10vw;
+}
+.card{
+    width: 10rem;
+    background-color: #1E1E1E;
+    border: none;
+}
+.card-text{
+    font-size: 0.9em;
+}
