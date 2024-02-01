@@ -38,6 +38,17 @@ footer {
     /* display: flex; */
     /* align-items: center; */
 }
+.main__review{
+    position: absolute;
+    top: 0;
+    background-color: #fff;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+}
 .main__picture--film{
     max-width: 90%;
     /* max-height: 100%; */
