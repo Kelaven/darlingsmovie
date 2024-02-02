@@ -83,4 +83,12 @@ class Actor
 
         return $this;
     }
+
+
+        // ! pour le CRUD dans EasyAdmin
+        public function __toString()
+        {
+            return $this->getActorName();
+            // return $this->getActorPicture();
+        }
 }

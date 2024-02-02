@@ -74,4 +74,12 @@ class Category
 
         return $this;
     }
+
+
+
+    // ! pour le CRUD dans EasyAdmin
+    public function __toString()
+    {
+        return $this->getCategoryName();
+    }
 }
