@@ -20,10 +20,10 @@ class CategoryFixtures extends Fixture
             $categoryName->setCategoryName($category);
 
             $manager->persist($categoryName);
-            $manager->flush();
-
-            $this->addReference('category_' . $count, $categoryName); // pour la récupérer dans AppFixtures. Il faut concaténer avec un compteur sinon si les références ont toutes le même nom il y aura une erreur
+            
+            $this->addReference('category_' . $count, $categoryName); // pour la récupérer dans MovieFixtures. Il faut concaténer avec un compteur sinon si les références ont toutes le même nom il y aura une erreur
             $count++;
         }
+        $manager->flush();
     }
 }
