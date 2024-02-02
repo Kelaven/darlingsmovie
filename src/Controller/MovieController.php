@@ -7,8 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Movie;
-use App\Entity\Actor;
-// use App\Entity\Category;
+
 
 
 class MovieController extends AbstractController
@@ -20,14 +19,12 @@ class MovieController extends AbstractController
         $subtitle = 'Les supers films de La Manu';
 
         $movies = $mr->getRepository(Movie::class)->findAll();
-        // $categories = $mr->getRepository(Category::class)->findAll();
 
         return $this->render('movie/index.html.twig', [
             'controller_name' => 'MovieController',
             'subtitle' => $subtitle,
             'movies' => $movies,
 
-            // 'categories' => $categories
         ]);
     }
 
@@ -36,15 +33,12 @@ class MovieController extends AbstractController
     public function detail(ManagerRegistry $mr): Response // ManagerRegistry $mr pour récupérer les données avec getRepository et findAll
     {
         $page = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
-        // dd($page);
+
         $movie = $mr->getRepository(Movie::class)->find($page);
-        // dd($movie);
-        $actors = $mr->getRepository(Actor::class)->findAll();
-        dd($actors);
+
         return $this->render('movie/detailmovie.html.twig', [
             'controller_name' => 'MovieController',
-            'movie' => $movie,
-            'actors' => $actors
+            'movie' => $movie
         ]);
     }
 }
