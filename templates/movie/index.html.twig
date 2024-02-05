@@ -37,56 +37,13 @@
 				<i class="bi bi-arrow-right"></i>
 			</button>
 		</div>
-		<div class="div4 d-flex" data-status="active">
-			<div class="main__picture w-25">
-				<img class="main__picture--film pt-5" src="{{ asset('img/unnamed.jpg') }}" alt="photo film">
-				<div class="main__review">
-					9
-				</div>
-			</div>
-			<div class="main__film w-75 px-2">
-				<div class="main__film--title">
-					<h2>The Expendables</h2>
-				</div>
-				<div class="main__film--infos d-flex">
-					<div class="genre px-5">
-						<p>Film d'action</p>
-					</div>
-					<div class="duree px-5">
-						<p>2h32</p>
-					</div>
-					<div class="date px-5">
-						<p>02/2016</p>
-					</div>
-				</div>
-				<div class="main__film--text">
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-						laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-						voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-						non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-						laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-						voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-						non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</p>
-				</div>
-				<div class="main__film--btn">
-					<a class="btn btn-light" href="{{ path('detail_movie') }}" target="_blank">En savoir +</a>
-				</div>
-			</div>
-		</div>
-
-
-		{# ? dynamique #}
-
+		{# ! dynamique #}
 		{% for movie in movies %}
-
-		<div class="div4 d-flex" data-status="inactive">
+		<div class="div4 d-flex" data-status="{{ loop.first ? 'active' : 'inactive' }}" id="movie{{ loop.index }}"> 
+			{# loop.first est une variable fournie par Twig qui indique si c'est le premier tour de la boucle. #}
+			{# id="movie{{ loop.index }}" : Cela attribue un identifiant unique à chaque film en utilisant le numéro de l'itération. #}
 			<div class="main__picture w-25">
-				<img class="main__picture--film pt-5" src="{{ asset(movie.picture) }}" alt="photo film">
+				<img class="main__picture--film pt-5" src="{{ 'img/' ~ movie.picture }}" alt="photo film">
 				<div class="main__review">
 					{{ movie.review }}
 				</div>
@@ -108,7 +65,7 @@
 				</div>
 				<div class="main__film--text">
 					<p>
-						{{ movie.synopsis }}
+						{{ movie.synopsis|striptags }}
 					</p>
 				</div>
 				<div class="main__film--btn">
@@ -116,7 +73,6 @@
 				</div>
 			</div>
 		</div>
-
 		{% endfor %}
 
 
