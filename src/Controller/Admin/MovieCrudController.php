@@ -42,7 +42,7 @@ class MovieCrudController extends AbstractCrudController
             TextField::new('trailer'),
             TextEditorField::new('synopsis'), // Utilise-le lorsque tu veux permettre à l'utilisateur de saisir ou éditer du texte plus long, par exemple une description.
             AssociationField::new('category'),
-            AssociationField::new('actors'),
+            AssociationField::new('actors')->setFormTypeOption('by_reference', false), // il fallait utiliser setFOrmTypeOption pour que les modif soient prises en compte. Cette option indique à Symfony de traiter la relation comme étant non référencée par l'entité principale, ce qui est nécessaire pour les relations many-to-many où la relation est gérée par une table intermédiaire.
         ];
     }
 }
