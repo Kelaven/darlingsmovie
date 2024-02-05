@@ -8,8 +8,11 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\UX\Turbo\Attribute\Broadcast;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 #[ORM\Entity(repositoryClass: MovieRepository::class)]
+#[Vich\Uploadable]
 #[Broadcast]
 class Movie
 {
@@ -19,8 +22,11 @@ class Movie
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type:'string', length: 255)]
     private ?string $picture = null;
+
+    #[Vich\UploadableField(mapping: 'products', fileNameProperty: 'picture')]
+    private ?File $pictureFile = null;
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
@@ -67,6 +73,21 @@ class Movie
         $this->picture = $picture;
 
         return $this;
+    }
+
+    public function getPictureFile(): ?File
+    {
+        return $this->pictureFile;
+    }
+
+    public function setPictureFile(?File $pictureFile = null)
+    {
+        $this->pictureFile = $pictureFile;
+
+        return $this;
+        // if (null !== $pictureFile) {
+        //     $this->updated_at = new \DateTimeImmutable();
+        // }
     }
 
     public function getName(): ?string
