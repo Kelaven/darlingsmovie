@@ -17,7 +17,7 @@ class Actor
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $actor_picture = null;
 
     #[ORM\Column(length: 255)]
@@ -41,7 +41,7 @@ class Actor
         return $this->actor_picture;
     }
 
-    public function setActorPicture(string $actor_picture): static
+    public function setActorPicture(?string $actor_picture): static
     {
         $this->actor_picture = $actor_picture;
 

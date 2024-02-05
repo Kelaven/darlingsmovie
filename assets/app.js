@@ -12,52 +12,58 @@ console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
 
 
 
+// ! attribuer le bon dataset au premier film et aux suivants
 
-// ! Variables
-
-// * to make carousel on paysages
-const leftBtn = document.querySelector('.carousel__btn--left');
-const rightBtn = document.querySelector('.carousel__btn--right');
-const parents = document.querySelectorAll('.div4');
+// Sélectionne tous les éléments .div4 dans le conteneur
+const parents = document.querySelectorAll(".div4");
+console.log(parents);
+// Initialise l'index actif
 let activeIndex = 0;
-let currentParent;
 
-// console.log(parents);
+// Fonction pour mettre à jour le statut en fonction de l'index
+function updateStatus() {
+    for (let i = 0; i < parents.length; i++) { // parents[i] fait référence à l'élément spécifique dans la liste des éléments .div4 à l'index i. En d'autres termes, parents[i] est l'élément individuel dans la liste d'éléments .div4 à l'index i.
+        console.log(parents[i]);
+        if (i === activeIndex) {
+            parents[i].dataset.status = "active";
+        } else {
+            parents[i].dataset.status = "inactive";
+        }
+    }
+}
 
-// ! Functions
+// Appelle la fonction initiale pour définir le statut initial
+updateStatus();
 
-// * to activate carousel on paysages
+// Fonction pour gérer le clic sur le bouton droit
+function clickRightBtn() {
+    const rightBtn = document.querySelector('.carousel__btn--right'); // Ajoute cette ligne
+    rightBtn.addEventListener("click", () => {
+        
+        // activeIndex++;
+        // if (activeIndex >= parents.length) {
+            //     activeIndex = 0;
+            // }
+            activeIndex = (activeIndex + 1) % parents.length; // code de dessus optimisé
+            // si activeIndex +1 = 3 et qu'il y a 3 films, 3%3=0 donc activeIndex prend comme valeur 0
+            
+            updateStatus();
+
+            // donc au clic sur le bouton, l'activeIndex passe à 1 avec l'incrémentation, 
+            // du coup i vaut 1 (c'est pour ça qu'on rappelle la fonction) 
+            // et c'est égal à activeIndex donc le changement de dataset s'opère
+    });
+}
+
+// Fonction pour gérer le clic sur le bouton gauche
+function clickLeftBtn() {
+    const leftBtn = document.querySelector('.carousel__btn--left'); // Ajoute cette ligne
+    leftBtn.addEventListener("click", () => {
+        activeIndex = (activeIndex - 1 + parents.length) % parents.length;
+        updateStatus();
+    });
+}
+
+// Appelle les fonctions pour activer les boutons
 clickRightBtn();
 clickLeftBtn();
-
-function clickRightBtn() {
-    rightBtn.addEventListener('click', () => {
-        activeIndex++;
-        console.log(activeIndex);
-        if (activeIndex >= parents.length) {
-            activeIndex = 0;
-        }
-
-        currentParent = document.querySelector(`[data-status="active"]`);
-        currentParent.dataset.status = "inactive";
-
-        parents[activeIndex].dataset.status = "active";
-        // console.log(activeIndex);
-    });
-}
-
-function clickLeftBtn() {
-    leftBtn.addEventListener('click', () => {
-        activeIndex--;
-
-        if (activeIndex < 0) {
-            activeIndex = parents.length - 1;
-        }
-
-        currentParent = document.querySelector(`[data-status="active"]`);
-        currentParent.dataset.status = "inactive";
-
-        parents[activeIndex].dataset.status = "active";
-        // console.log(activeIndex);
-    });
-}

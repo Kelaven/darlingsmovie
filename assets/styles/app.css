@@ -210,3 +210,7 @@ footer {
 .card-text{
     font-size: 0.9em;
 }
+.card-img-top{
+    height: 14rem;
+    object-fit: cover;
+}

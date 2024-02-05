@@ -22,7 +22,7 @@ class Movie
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type:'string', length: 255)]
+    #[ORM\Column(type:'string', length: 255, nullable: true)]
     private ?string $picture = null;
 
     #[Vich\UploadableField(mapping: 'products', fileNameProperty: 'picture')]
@@ -68,7 +68,7 @@ class Movie
         return $this->picture;
     }
 
-    public function setPicture(string $picture): static
+    public function setPicture(?string $picture): static
     {
         $this->picture = $picture;
 

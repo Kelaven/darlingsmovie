@@ -39,10 +39,10 @@ class MovieFixtures extends Fixture implements DependentFixtureInterface
 
 
 
-            $actorsNumber = rand(1,10); // je veux qu'il y ai entre 1 et 10 acteurs par films
+            $actorsNumber = rand(1, 10); // je veux qu'il y ai entre 1 et 10 acteurs par films
             $actors = []; // la variable prendra le nombre défini au dessus dans son tableau
-            for ($i=0; $i < $actorsNumber ; $i++) { // pour répéter l'opération d'association des acteurs au film selon le nombre généré.
-                $actors[] = $this->getReference('actor_' . rand(0,9)); // un acteur est récupéré de manière aléatoire parmi les acteurs déjà créés.
+            for ($i = 0; $i < $actorsNumber; $i++) { // pour répéter l'opération d'association des acteurs au film selon le nombre généré.
+                $actors[] = $this->getReference('actor_' . rand(0, 9)); // un acteur est récupéré de manière aléatoire parmi les acteurs déjà créés.
             }
             foreach ($actors as $actor) {
                 $movie->addActor($actor); // L'acteur récupéré est ajouté à la liste des acteurs associés au film.
@@ -51,18 +51,15 @@ class MovieFixtures extends Fixture implements DependentFixtureInterface
 
 
             $manager->persist($movie);
-
         }
         $manager->flush();
     }
 
-    public function getDependencies() 
+    public function getDependencies()
     {
         return [
             CategoryFixtures::class, // dépend de CategoryFixtures car un film doit etre rattaché à une catégorie 
             ActorFixtures::class // pour qu'un film ai un acteur, il faut que les acteurs soient créés
         ];
     }
-
-
 }
