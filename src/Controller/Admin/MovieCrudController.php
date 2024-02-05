@@ -12,6 +12,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 
 class MovieCrudController extends AbstractCrudController
@@ -34,7 +36,9 @@ class MovieCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            TextField::new('picture'), // Utilise-le lorsque tu veux afficher ou éditer du texte court, comme un titre ou un nom. C'est adapté pour des données qui n'ont pas besoin d'un éditeur de texte complet.
+            // TextField::new('picture'), // Utilise-le lorsque tu veux afficher ou éditer du texte court, comme un titre ou un nom. C'est adapté pour des données qui n'ont pas besoin d'un éditeur de texte complet.
+            TextField::new('pictureFile')->setFormType(VichImageType::class),
+            ImageField::new('picture')->setBasePath('/uploads/picture')->onlyOnIndex(),
             TextField::new('name'),
             TextField::new('duration'),
             DateField::new('release_date'), // DateField / DateTimeField: Utilisés pour les champs de date ou de date et heure.
