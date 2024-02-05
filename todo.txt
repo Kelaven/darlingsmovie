@@ -1,3 +1,4 @@
 -> ajouter les réalisateurs
 -> sécuriser l'accès au dashboard
+-> finir le design et le rendre responsive
 -> autres features comme les commentaires
