@@ -13,7 +13,7 @@ use App\Entity\Movie;
 class MovieController extends AbstractController
 {
     // ! home page
-    #[Route('/movie', name: 'app_movie')]
+    #[Route('/', name: 'app_movie')]
     public function index(ManagerRegistry $mr): Response // ManagerRegistry $mr pour récupérer les données avec getRepository et findAll
     {
         $subtitle = 'Les supers films de La Manu';
